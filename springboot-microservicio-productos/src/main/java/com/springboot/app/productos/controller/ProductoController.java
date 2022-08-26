@@ -19,12 +19,12 @@ public class ProductoController {
 	@Autowired
 	private IProductoService service;
 	
-	@GetMapping
+	@GetMapping("/listar")
 	public ResponseEntity<?> listar(){
 		return ResponseEntity.ok().body(service.findAll());
 	}
 	
-	@GetMapping("/detalle/{id}")
+	@GetMapping("/ver/{id}")
 	public ResponseEntity<?> verDetalle(@PathVariable Long id){
 		Optional<Producto> productoOpt = service.findById(id);
 		
